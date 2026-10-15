@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import ServicePage from './pages/ServicePage'
+import Admin from './pages/Admin'
 
 function ScrollHandler() {
   const { pathname, hash } = useLocation()
@@ -14,6 +15,7 @@ function ScrollHandler() {
       window.scrollTo(0, 0)
     }
   }, [pathname, hash])
+
   return null
 }
 
@@ -28,6 +30,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services/:slug" element={<ServicePage />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       {!isHome && <Footer />}
     </>

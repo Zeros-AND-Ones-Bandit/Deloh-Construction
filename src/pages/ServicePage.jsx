@@ -2,6 +2,7 @@ import { useParams, Navigate } from 'react-router-dom'
 import { FaCheck } from 'react-icons/fa'
 import services from '../data/services'
 import QuoteBar from '../components/QuoteBar'
+import Gallery from '../components/Gallery'
 
 export default function ServicePage() {
   const { slug } = useParams()
@@ -50,7 +51,9 @@ export default function ServicePage() {
             <QuoteBar icon={s.icon} title={s.quoteTitle} text={s.quoteText} />
           </>
         )}
-      </section>
+          </section>
+
+      <Gallery slug={s.slug} />
     </>
   )
 }
