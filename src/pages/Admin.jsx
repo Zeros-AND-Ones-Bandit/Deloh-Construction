@@ -18,6 +18,8 @@ export default function Admin() {
   const [busy, setBusy] = useState(false)
   const [message, setMessage] = useState('')
   const [images, setImages] = useState([])
+  const [phone, setPhone] = useState('')
+  const [phoneMsg, setPhoneMsg] = useState('')
 
   // Track login state
   useEffect(() => {
@@ -52,6 +54,24 @@ export default function Admin() {
       .eq('service_slug', slug)
       .order('created_at', { ascending: false })
     setImages(data || [])
+  }
+
+  useEffect(() => {
+    if (!isAdmin) return
+    supabase
+      .from('site_settings')
+      .select('value')
+      .eq('key', 'phone')
+      .maybeSingle()
+      .then(({ data }) => setPhone(data?.value || ''))
+  }, [isAdmin])
+
+  const savePhone = async () => {
+    setPhoneMsg('')
+    const { error } = await supabase
+      .from('site_settings')
+      .upsert({ key: 'phone', value: phone.trim(), updated_at: new Date().toISOString() })
+    setPhoneMsg(error ? error.message : 'Contact number saved.')
   }
 
   useEffect(() => {
@@ -149,6 +169,19 @@ export default function Admin() {
           <h2>Manage Pictures</h2>
           <button className="btn btn-outline-dark btn-small" onClick={() => supabase.auth.signOut()}>Log out</button>
         </div>
+
+        <h3 style={{ marginTop: 4 }}>Contact number</h3>
+          <label>Phone number shown on the "Contact Us" button</label>
+          <input
+            type="tel"
+            placeholder="e.g. +27 82 123 4567"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <button className="btn btn-yellow" onClick={savePhone}>Save number</button>
+          {phoneMsg && <p className="admin-msg">{phoneMsg}</p>}
+          <hr style={{ border: 'none', borderTop: '1px solid #e5e7eb', margin: '14px 0 4px' }} />
+          <h3 style={{ marginTop: 4 }}>Pictures</h3>
 
         <label>Service</label>
         <select value={slug} onChange={(e) => setSlug(e.target.value)}>

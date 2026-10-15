@@ -3,6 +3,8 @@ import { FaMedal, FaClock, FaDollarSign, FaStar } from 'react-icons/fa'
 import services from '../data/services'
 import homeHero from '../images/home-hero.jpeg'
 import Logo from '../components/Logo'
+import { FaPhoneAlt } from 'react-icons/fa'
+import { usePhone } from '../lib/usePhone'
 
 const features = [
   { icon: FaMedal, label: 'High Quality Workmanship' },
@@ -12,6 +14,8 @@ const features = [
 ]
 
 export default function Home() {
+  const phone = usePhone()
+  const telLink = phone.replace(/[^\d+]/g, '')
   return (
     <>
       <section
@@ -27,6 +31,12 @@ export default function Home() {
         <div className="hero-buttons">
           <Link to="/#contact" className="btn btn-yellow">Get a Quote</Link>
           <a href="#services" className="btn btn-outline">Our Services</a>
+          {telLink && (
+            <a href={`tel:${telLink}`} className="btn btn-outline">
+              <FaPhoneAlt style={{ marginRight: 8, verticalAlign: '-2px' }} />
+              Contact Us
+            </a>
+          )}
         </div>
       </section>
 
@@ -50,11 +60,12 @@ export default function Home() {
           </div>
         ))}
       </section>
-
-      <div className="home-bottom" id="contact">
-        <p>Building better spaces, together.</p>
-        <Logo />
-      </div>
+      
+     <div className="home-bottom" id="contact">
+      <p>Building better spaces, together.</p>
+      <Logo />
+      <Link to="/admin" className="admin-link">Admin</Link>
+    </div>
     </>
   )
 }
