@@ -5,21 +5,24 @@ import { usePhone } from '../lib/usePhone'
 
 export default function Footer() {
   const phone = usePhone()
+  const telLink = phone.replace(/[^\d+]/g, '')
+
   return (
-    <footer className="footer" id="contact">
+    <footer className="footer">
       <Logo />
       <nav className="footer-links">
         <Link to="/">Home</Link>
         <Link to="/#services">Services</Link>
-        <Link to="/#about">About</Link>
-        <Link to="/#contact">Contact</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/quote">Get a Quote</Link>
         <Link to="/admin" className="admin-link">Admin</Link>
       </nav>
       <div className="socials">
-        {/* Replace the # links and phone number with your real ones */}
+        {/* Replace the # links with your real Facebook and Instagram pages */}
         <a href="#" aria-label="Facebook"><FaFacebookF /></a>
         <a href="#" aria-label="Instagram"><FaInstagram /></a>
-        <a href={`tel:${phone.replace(/[^\d+]/g, '')}`} aria-label="Phone"><FaPhoneAlt /></a>
+        {telLink && <a href={`tel:${telLink}`} aria-label="Phone"><FaPhoneAlt /></a>}
       </div>
     </footer>
   )

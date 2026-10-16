@@ -29,7 +29,7 @@ export default function Home() {
         </h1>
         <p className="hero-sub">From foundations to finishes, we build with passion and precision.</p>
         <div className="hero-buttons">
-          <Link to="/#contact" className="btn btn-yellow">Get a Quote</Link>
+          <Link to="/quote" className="btn btn-yellow">Get a Quote</Link>
           <a href="#services" className="btn btn-outline">Our Services</a>
           {telLink && (
             <a href={`tel:${telLink}`} className="btn btn-outline">
@@ -52,7 +52,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="features-strip" id="about">
+      <section className="features-strip">
         {features.map(({ icon: Icon, label }) => (
           <div className="feature" key={label}>
             <Icon />
@@ -61,7 +61,7 @@ export default function Home() {
         ))}
       </section>
       
-     <div className="home-bottom" id="contact">
+     <div className="home-bottom">
       <p>Building better spaces, together.</p>
       <Logo />
       <Link to="/admin" className="admin-link">Admin</Link>

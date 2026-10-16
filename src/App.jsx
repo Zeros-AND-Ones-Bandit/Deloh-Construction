@@ -5,6 +5,9 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import ServicePage from './pages/ServicePage'
 import Admin from './pages/Admin'
+import Quote from './pages/Quote'
+import Contact from './pages/Contact'
+import About from './pages/About'
 
 function ScrollHandler() {
   const { pathname, hash } = useLocation()
@@ -31,6 +34,9 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services/:slug" element={<ServicePage />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/quote" element={<Quote />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       {!isHome && <Footer />}
     </>

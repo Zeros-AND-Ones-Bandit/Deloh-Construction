@@ -36,7 +36,7 @@ export default function ServicePage() {
               {list}
             </div>
             <img src={s.side} alt={s.name} className="side-img" />
-            <QuoteBar icon={s.icon} title={s.quoteTitle} text={s.quoteText} stacked />
+            <QuoteBar icon={s.icon} title={s.quoteTitle} text={s.quoteText} slug={s.slug} stacked />
           </div>
         ) : (
           <>
@@ -48,7 +48,7 @@ export default function ServicePage() {
               </div>
               <img src={s.side} alt={s.name} className="side-img" />
             </div>
-            <QuoteBar icon={s.icon} title={s.quoteTitle} text={s.quoteText} />
+            <QuoteBar icon={s.icon} title={s.quoteTitle} text={s.quoteText} slug={s.slug} stacked />
           </>
         )}
           </section>

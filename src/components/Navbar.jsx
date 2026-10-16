@@ -13,13 +13,13 @@ export default function Navbar() {
       <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Menu">
         {open ? <FaTimes /> : <FaBars />}
       </button>
-      <nav className={`nav-links ${open ? 'open' : ''}`}>
+     <nav className={`nav-links ${open ? 'open' : ''}`}>
         <NavLink to="/" end onClick={close}>Home</NavLink>
         <Link to="/#services" onClick={close}>Services</Link>
-        <Link to="/#about" onClick={close}>About</Link>
-        <Link to="/#contact" onClick={close}>Contact</Link>
-        <Link to="/#contact" className="btn btn-yellow btn-small" onClick={close}>Get a Quote</Link>
-      </nav>
+        <NavLink to="/about" onClick={close}>About</NavLink>
+        <NavLink to="/contact" onClick={close}>Contact</NavLink>
+        <Link to="/quote" className="btn btn-yellow btn-small" onClick={close}>Get a Quote</Link>
+     </nav>
     </header>
   )
 }
