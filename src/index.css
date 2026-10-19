@@ -225,3 +225,11 @@ a.info-item:hover strong { color: #b8890b; }
   .form-row { grid-template-columns: 1fr; }
   .reasons { grid-template-columns: repeat(2, 1fr); }
 }
+/* ---------- Stop iPhone auto-zoom on form fields ---------- */
+@supports (-webkit-touch-callout: none) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}

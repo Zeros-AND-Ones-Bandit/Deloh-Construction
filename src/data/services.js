@@ -1,11 +1,10 @@
-import { FaHardHat, FaThLarge, FaTint, FaLayerGroup, FaPaintRoller, FaDoorClosed } from 'react-icons/fa'
-
+import { FaHardHat, FaThLarge, FaTint, FaBorderAll, FaLayerGroup, FaPaintRoller, FaDoorClosed } from 'react-icons/fa'
 import buildingHero from '../images/building-hero.jpeg'
 import buildingSide from '../images/building-side.jpeg'
 import pavengHero from '../images/paveng-hero.jpeg'
 import pavengSide from '../images/paveng-side.jpeg'
-import flowHero from '../images/flowtall-hero.jpg'
-import flowSide from '../images/flowtall-side.jpg'
+import tileHero from '../images/tile-hero.jpeg'
+import tileSide from '../images/tile.jpeg'
 import ceilingHero from '../images/ceiling-hero.jpg'
 import ceilingSide from '../images/ceiling-side.jpg'
 import paintingHero from '../images/painting-hero.jpg'
@@ -43,18 +42,18 @@ const services = [
     quoteText: 'Quality paveng for a lasting impression.',
   },
   {
-    slug: 'flow-tall',
-    name: 'Flow Tall',
-    icon: FaTint,
-    tagline: 'Efficient drainage. Proper flow.',
-    heading: 'Our Flow Tall Services',
+    slug: 'floor-tiles',
+    name: 'Floor Tiles',
+    icon: FaBorderAll,
+    tagline: 'Clean lines. Lasting finish.',
+    heading: 'Our Floor Tile Services',
     intro:
-      'We install and maintain drainage systems to ensure proper water flow and prevent blockages. Our solutions keep your property safe and functional.',
-    items: ['Drainage installation', 'Sewer connections', 'Stormwater systems', 'Repairs and maintenance'],
-    hero: flowHero,
-    side: flowSide,
-    quoteTitle: 'Keep the flow going.',
-    quoteText: 'Reliable drainage for a cleaner, safer environment.',
+      'We supply and install quality floor tiles for homes and businesses. Our team delivers neat, level and long-lasting results in every room.',
+    items: ['Floor tiling', 'Wall tiling', 'Bathroom and kitchen tiling', 'Tile repairs and regrouting'],
+    hero: tileHero,
+    side: tileSide,
+    quoteTitle: 'Great floors start with great tiling.',
+    quoteText: 'Quality tiling for a clean, lasting finish.',
   },
   {
     slug: 'ceiling',
